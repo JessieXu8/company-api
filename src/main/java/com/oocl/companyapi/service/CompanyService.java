@@ -42,4 +42,11 @@ public class CompanyService {
         }
         return null;
     }
+
+    public Company updateCompanies(int id, Company newCompany) {
+        if(companies.containsKey(id)){
+            return companies.replace(id,newCompany);
+        }
+        return null;
+    }
 }

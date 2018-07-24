@@ -44,4 +44,12 @@ public class CompanyTests {
         List<Employee> result = companyService.getEmployeesOfCompanyById(1);
         assertThat(result.size(), is(1));
     }
+
+    @Test
+    public void should_return_update_Company_when_call_updateCompany_successful() {
+        Company company = new Company(1);
+        companyService.addCompany(company);
+        Company result = companyService.updateCompanies(1,new Company(2));
+        assertThat(result.getCompanyId(), is(1));
+    }
 }
