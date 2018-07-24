@@ -35,4 +35,11 @@ public class CompanyService {
         }
         return null;
     }
+
+    public List<Employee> getEmployeesOfCompanyById(int id) {
+        if(companies.containsKey(id)){
+            return companies.get(id).getEmployees();
+        }
+        return null;
+    }
 }

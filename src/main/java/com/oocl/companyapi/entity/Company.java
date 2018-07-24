@@ -43,6 +43,14 @@ public class Company {
     }
     public Company() {
     }
+
+    public Company(int companyId, String companyName, String employeesNumber, List<Employee> employees) {
+        this.companyId = companyId;
+        this.companyName = companyName;
+        this.employeesNumber = employeesNumber;
+        this.employees = employees;
+    }
+
     private int companyId;
     private String companyName;
     private String employeesNumber;

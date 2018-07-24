@@ -26,4 +26,9 @@ public class CompanyController {
     public Company getCompanyById(@PathVariable int id){
         return companyService.getCompanyById(id);
     }
+
+    @GetMapping("/companies/{id}/employees")
+    public List<Employee> getEmployeesOfCompanyById(@PathVariable int id){
+        return companyService.getEmployeesOfCompanyById(id);
+    }
 }

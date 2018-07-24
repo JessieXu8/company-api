@@ -1,7 +1,9 @@
 package com.oocl.companyapi;
 
 import com.oocl.companyapi.entity.Company;
+import com.oocl.companyapi.entity.Employee;
 import com.oocl.companyapi.service.CompanyService;
+import com.oocl.companyapi.service.EmployeeService;
 import org.junit.Test;
 
 import java.util.List;
@@ -30,5 +32,16 @@ public class CompanyTests {
         companyService.addCompany(company);
         Company result = companyService.getCompanyById(1);
         assertThat(result, is(company));
+    }
+
+    @Test
+    public void should_return_Employees_of_Company_when_call_getEmployeesOfCompanyById_successful() {
+        Employee employee = new Employee();
+        EmployeeService employeeService = new EmployeeService();
+        employeeService.addEmployee(employee);
+        Company company = new Company(1,"ali","200",employeeService.getEmployee());
+        companyService.addCompany(company);
+        List<Employee> result = companyService.getEmployeesOfCompanyById(1);
+        assertThat(result.size(), is(1));
     }
 }
