@@ -34,10 +34,20 @@ public class EmployeeTests {
     }
 
     @Test
-    public void should_return_Employee_when_call_findEmployee_successful() {
+    public void should_return_Employee_when_call_findEmployeeById_successful() {
         Employee newEmployee = new Employee(1, "abibaba1", 20, "male", 6000);
         employeeService.addEmployee(newEmployee);
-        Employee result = employeeService.findEmployee(1);
+        Employee result = employeeService.findEmployeeById(1);
         assertThat(result, is(newEmployee));
+    }
+
+    @Test
+    public void should_return_Employee_when_call_findEmployeeByGender_successful() {
+        Employee newEmployee1 = new Employee(1, "abibaba1", 20, "male", 6000);
+        employeeService.addEmployee(newEmployee1);
+        Employee newEmployee2 = new Employee(2, "abibaba1", 20, "female", 6000);
+        employeeService.addEmployee(newEmployee2);
+        List<Employee> result = employeeService.findEmployeesByGender("male");
+        assertThat(result.size(), is(1));
     }
 }

@@ -26,10 +26,20 @@ public class EmployeeService {
         return employeesList;
     }
 
-    public Employee findEmployee(int id) {
+    public Employee findEmployeeById(int id) {
         if(employees.containsKey(id)){
             return employees.get(id);
         }
         return null;
+    }
+
+    public List<Employee> findEmployeesByGender(String gender) {
+        List<Employee> employeesList = new ArrayList<>();
+        for (Integer id : employees.keySet()){
+            if(employees.get(id).getGender().equals(gender)) {
+                employeesList.add(employees.get(id));
+            }
+        }
+        return employeesList;
     }
 }
