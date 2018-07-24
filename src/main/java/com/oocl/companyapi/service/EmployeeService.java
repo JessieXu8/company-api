@@ -56,4 +56,20 @@ public class EmployeeService {
         }
         return null;
     }
+
+    public List<Employee> showEmployeesByPage(int page, int pageSize) {
+        List<Employee> employeesList = getEmployee();
+        List<Employee> employeeListByPage = new ArrayList<>();
+        int pagesNum = employees.size()/pageSize+1;
+        if(page>pagesNum){
+            return null;
+        }else {
+            if (page*pageSize <=employees.size()){
+                employeeListByPage =employeesList.subList((page-1)*pageSize,(page-1)*pageSize+5);
+            }else {
+                employeeListByPage=employeesList.subList((page-1)*pageSize,employees.size());
+            }
+            return employeeListByPage;
+        }
+    }
 }

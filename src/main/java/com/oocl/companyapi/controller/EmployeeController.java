@@ -42,4 +42,9 @@ public class EmployeeController {
     public Employee delEmployees(@PathVariable int  id){
         return employeeService.delEmployee(id);
     }
+
+    @GetMapping("/employees/page/{page}/pageSize/{pageSize}")
+    public List<Employee> showEmployeesByPage(@PathVariable int  page,@PathVariable int  pageSize){
+        return employeeService.showEmployeesByPage(page,pageSize);
+    }
 }

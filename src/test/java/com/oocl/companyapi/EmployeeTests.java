@@ -10,7 +10,6 @@ import org.springframework.test.context.junit4.SpringRunner;
 import java.util.List;
 
 import static org.hamcrest.Matchers.is;
-import static org.hamcrest.Matchers.not;
 import static org.junit.Assert.assertThat;
 
 
@@ -69,5 +68,17 @@ public class EmployeeTests {
         Employee employee = employeeService.delEmployee(1);
 
         assertThat(employeeService.getEmployee().size(), is(0));
+    }
+    @Test
+    public void should_return_EmployeesByPage_when_call_showEmployeesByPage_successful() {
+        employeeService.addEmployee(new Employee(1, "abibaba1", 20, "male", 6000));
+        employeeService.addEmployee(new Employee(2, "abibaba1", 20, "male", 6000));
+        employeeService.addEmployee(new Employee(3, "abibaba1", 20, "male", 6000));
+        employeeService.addEmployee(new Employee(4, "abibaba1", 20, "male", 6000));
+        employeeService.addEmployee(new Employee(5, "abibaba1", 20, "male", 6000));
+        employeeService.addEmployee(new Employee(6, "abibaba1", 20, "male", 6000));
+        List<Employee> employee = employeeService.showEmployeesByPage(2,5);
+
+        assertThat(employee.size(), is(1));
     }
 }
