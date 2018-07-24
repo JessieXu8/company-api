@@ -1,6 +1,8 @@
 package com.oocl.companyapi.service;
 
 import com.oocl.companyapi.entity.Company;
+import com.oocl.companyapi.entity.Employee;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -10,6 +12,8 @@ import java.util.Map;
 
 @Service
 public class CompanyService {
+    @Autowired
+    EmployeeService employeeService;
     private Map<Integer,Company> companies = new HashMap<>();
 
     public Company addCompany(Company newCompany) {
@@ -23,5 +27,12 @@ public class CompanyService {
             employeesList.add(companies.get(id));
         }
         return employeesList;
+    }
+
+    public Company getCompanyById(int id) {
+        if(companies.containsKey(id)){
+            return companies.get(id);
+        }
+        return null;
     }
 }

@@ -4,10 +4,7 @@ import com.oocl.companyapi.entity.Company;
 import com.oocl.companyapi.entity.Employee;
 import com.oocl.companyapi.service.CompanyService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -23,5 +20,10 @@ public class CompanyController {
     @GetMapping("/companies")
     public List<Company> getCompanies(){
         return companyService.getCompanies();
+    }
+
+    @GetMapping("/companies/{id}")
+    public Company getCompanyById(@PathVariable int id){
+        return companyService.getCompanyById(id);
     }
 }

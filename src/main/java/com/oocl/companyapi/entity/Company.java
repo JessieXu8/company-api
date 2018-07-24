@@ -38,6 +38,11 @@ public class Company {
         this.companyId = companyId;
     }
 
+    public Company(int companyId) {
+        this.companyId = companyId;
+    }
+    public Company() {
+    }
     private int companyId;
     private String companyName;
     private String employeesNumber;
