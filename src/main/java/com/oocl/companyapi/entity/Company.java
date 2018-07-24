@@ -30,6 +30,15 @@ public class Company {
         this.employees = employees;
     }
 
+    public int getCompanyId() {
+        return companyId;
+    }
+
+    public void setCompanyId(int companyId) {
+        this.companyId = companyId;
+    }
+
+    private int companyId;
     private String companyName;
     private String employeesNumber;
     private List<Employee> employees;

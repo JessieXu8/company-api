@@ -52,13 +52,34 @@ public class Employee {
         this.gender = gender;
         this.salary = salary;
     }
+
+    public Employee(int id, String name, int age, String gender, int salary, int companyId) {
+        this.id = id;
+        this.name = name;
+        this.age = age;
+        this.gender = gender;
+        this.salary = salary;
+        this.companyId = companyId;
+    }
+
     public Employee() {
 
     }
+
     private int id;
     private String name;
     private int age;
     private String gender;
     private int salary;
+
+    public int getCompanyId() {
+        return companyId;
+    }
+
+    public void setCompanyId(int companyId) {
+        this.companyId = companyId;
+    }
+
+    private int companyId;
 
 }

@@ -20,7 +20,7 @@ public class EmployeeTests {
 
     @Test
     public void should_return_all_employees_when_call_addEmployees_successful() {
-        Employee newEmployee = new Employee(1, "abibaba1", 20, "male", 6000);
+        Employee newEmployee = new Employee(1, "abibaba1", 20, "male", 6000,1);
         Employee result = employeeService.addEmployee(newEmployee);
         assertThat(result, is(newEmployee));
     }
