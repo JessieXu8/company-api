@@ -59,7 +59,15 @@ public class EmployeeTests {
         Employee newEmployee = new Employee(1, "abibaba1", 21, "male", 6000);
         Employee employee = employeeService.updateEmployee(1,newEmployee);
 
-
         assertThat(employee.getAge(), is(20));
+    }
+
+    @Test
+    public void should_return_Employee_when_call_delEmployee_successful() {
+        Employee Employee = new Employee(1, "abibaba1", 20, "male", 6000);
+        employeeService.addEmployee(Employee);
+        Employee employee = employeeService.delEmployee(1);
+
+        assertThat(employeeService.getEmployee().size(), is(0));
     }
 }

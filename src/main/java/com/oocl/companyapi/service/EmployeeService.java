@@ -49,4 +49,11 @@ public class EmployeeService {
         }
         return null;
     }
+
+    public Employee delEmployee(int id) {
+        if(employees.containsKey(id)){
+            return employees.remove(id);
+        }
+        return null;
+    }
 }
