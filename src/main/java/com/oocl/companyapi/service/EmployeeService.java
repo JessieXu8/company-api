@@ -25,4 +25,11 @@ public class EmployeeService {
         }
         return employeesList;
     }
+
+    public Employee findEmployee(int id) {
+        if(employees.containsKey(id)){
+            return employees.get(id);
+        }
+        return null;
+    }
 }

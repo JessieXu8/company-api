@@ -3,10 +3,7 @@ package com.oocl.companyapi.controller;
 import com.oocl.companyapi.entity.Employee;
 import com.oocl.companyapi.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -23,5 +20,10 @@ public class EmployeeController {
     @GetMapping("/employees")
     public List<Employee> getEmployees(){
         return employeeService.getEmployee();
+    }
+
+    @GetMapping("/employees/{id}")
+    public Employee findEmployees(@PathVariable int id){
+        return employeeService.findEmployee(id);
     }
 }

@@ -26,10 +26,18 @@ public class EmployeeTests {
     }
 
     @Test
-    public void should_return_all_employees_when_call_getEmployees_successful() {
+    public void should_return_size_of_employees_when_call_getEmployees_successful() {
         Employee newEmployee = new Employee();
         employeeService.addEmployee(newEmployee);
         List<Employee> result = employeeService.getEmployee();
         assertThat(result.size(), is(1));
+    }
+
+    @Test
+    public void should_return_Employee_when_call_findEmployee_successful() {
+        Employee newEmployee = new Employee(1, "abibaba1", 20, "male", 6000);
+        employeeService.addEmployee(newEmployee);
+        Employee result = employeeService.findEmployee(1);
+        assertThat(result, is(newEmployee));
     }
 }
