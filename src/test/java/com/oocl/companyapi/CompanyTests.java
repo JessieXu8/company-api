@@ -60,4 +60,17 @@ public class CompanyTests {
         Company result = companyService.delCompany(1);
         assertThat(result.getCompanyId(), is(1));
     }
+
+    @Test
+    public void should_return_CompanyByPage_when_call_getCompaniesByPage_successful() {
+        companyService.addCompany(new Company(1));
+        companyService.addCompany(new Company(2));
+        companyService.addCompany(new Company(3));
+        companyService.addCompany(new Company(4));
+        companyService.addCompany(new Company(5));
+        companyService.addCompany(new Company(6));
+        List<Company> companies = companyService.getCompaniesByPage(2,5);
+
+        assertThat(companies.size(), is(1));
+    }
 }

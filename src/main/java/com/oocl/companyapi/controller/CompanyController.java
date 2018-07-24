@@ -39,4 +39,8 @@ public class CompanyController {
     public Company delCompany(@PathVariable int  id){
         return companyService.delCompany(id);
     }
+    @GetMapping("/companies/page/{page}/pageSize/{pageSize}")
+    public List<Company> getCompaniesByPage(@PathVariable int page,@PathVariable int pageSize){
+        return companyService.getCompaniesByPage(page,pageSize);
+    }
 }
