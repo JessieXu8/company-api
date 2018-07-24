@@ -16,12 +16,12 @@ public class EmployeeController {
     private EmployeeService employeeService;
 
     @PostMapping("/employees")
-    public Employee getEmployees(@RequestBody Employee newEmployee){
+    public Employee addEmployees(@RequestBody Employee newEmployee){
         return employeeService.addEmployee(newEmployee);
     }
 
-//    @GetMapping("/employees")
-//    public List<Employee> getEmployees(){
-//        return employeeService.getEmployee();
-//    }
+    @GetMapping("/employees")
+    public List<Employee> getEmployees(){
+        return employeeService.getEmployee();
+    }
 }
