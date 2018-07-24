@@ -17,5 +17,11 @@ public class CompanyService {
         return newCompany;
     }
 
-
+    public List<Company> getCompanies() {
+        List<Company> employeesList = new ArrayList<>();
+        for (Integer id : companies.keySet()){
+            employeesList.add(companies.get(id));
+        }
+        return employeesList;
+    }
 }
