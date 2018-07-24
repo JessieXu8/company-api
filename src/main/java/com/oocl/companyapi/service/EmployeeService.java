@@ -42,4 +42,11 @@ public class EmployeeService {
         }
         return employeesList;
     }
+
+    public Employee updateEmployee(int id, Employee newEmployee) {
+        if(employees.containsKey(id)){
+            return employees.replace(id,newEmployee);
+        }
+        return null;
+    }
 }
