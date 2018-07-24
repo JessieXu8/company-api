@@ -49,4 +49,12 @@ public class CompanyService {
         }
         return null;
     }
+
+    public Company delCompany(int id) {
+        if(companies.containsKey(id)){
+            return companies.remove(id);
+        }
+        return null;
+    }
+
 }

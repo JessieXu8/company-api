@@ -52,4 +52,12 @@ public class CompanyTests {
         Company result = companyService.updateCompanies(1,new Company(2));
         assertThat(result.getCompanyId(), is(1));
     }
+
+    @Test
+    public void should_return_delete_Company_when_call_delCompany_successful() {
+        Company company = new Company(1);
+        companyService.addCompany(company);
+        Company result = companyService.delCompany(1);
+        assertThat(result.getCompanyId(), is(1));
+    }
 }
